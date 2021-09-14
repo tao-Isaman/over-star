@@ -2,23 +2,18 @@ import Phaser from 'phaser';
 
 export default class Demo extends Phaser.Scene {
   constructor() {
-    super('GameScene');
+    super('bootGame');
   }
 
   preload() {
-    this.load.image('logo', 'assets/phaser3-logo.png');
+    this.load.image("ship" , "assets/warships/w1.png")
+    this.load.image('beam' , "assets/warships/light-attack.png")
+    this.load.image('background' , "assets/bg6.jpeg")
   }
 
   create() {
-    const logo = this.add.image(400, 70, 'logo');
-
-    this.tweens.add({
-      targets: logo,
-      y: 350,
-      duration: 1500,
-      ease: 'Sine.inOut',
-      yoyo: true,
-      repeat: -1
-    });
+    this.scene.start('PlayGame')
   }
+
+  
 }
